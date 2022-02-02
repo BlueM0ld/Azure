@@ -172,6 +172,275 @@ what are cloud service models?
 
 
 
+# Azure Fundamentals part 5: Describe identity, governance, privacy, and compliance features
+
+
+
+Secure access to your applications by using Azure identity services
+
+
+
+What is authentication?
+
+
+Authentication is the process of establishing the identity of a person or service that wants to access a resource. It involves the act of challenging a party for legitimate credentials and provides the basis for creating a security principal for identity and access control. It establishes whether the user is who they say they are.
+
+What is authorization?
+
+
+Authentication establishes the user's identity, but authorization is the process of establishing what level of access an authenticated person or service has. It specifies what data they're allowed to access and what they can do with it.
+
+
+
+What is Azure Active Directory?
+
+
+Azure Active Directory (Azure AD) provides identity services that enable your users to sign in and access both Microsoft cloud applications and cloud applications that you develop
+
+
+How does Azure AD compare to Active Directory?
+
+
+Active Directory is related to Azure AD, but they have some key differences.
+
+Microsoft introduced Active Directory in Windows 2000 to give organizations the ability to manage multiple on-premises infrastructure components and systems by using a single identity per user.
+
+For on-premises environments, Active Directory running on Windows Server provides an identity and access management service that's managed by your own organization. Azure AD is Microsoft's cloud-based identity and access management service. With Azure AD, you control the identity accounts, but Microsoft ensures that the service is available globally. If you've worked with Active Directory, Azure AD will be familiar to you.
+
+When you secure identities on-premises with Active Directory, Microsoft doesn't monitor sign-in attempts. When you connect Active Directory with Azure AD, Microsoft can help protect you by detecting suspicious sign-in attempts at no extra cost. For example, Azure AD can detect sign-in attempts from unexpected locations or unknown devices.
+
+
+
+
+Who uses Azure AD?
+
+
+Azure AD is for:
+- IT administrators : Administrators can use Azure AD to control access to applications and resources based on their business requirements.
+- App developers :Developers can use Azure AD to provide a standards-based approach for adding functionality to applications that they build, such as adding SSO functionality to an app or enabling an app to work with a user's existing credentials.
+- Users : Users can manage their identities. For example, self-service password reset
+- Online service subscribers
+  
+  Microsoft 365, Microsoft Office 365, Azure, and Microsoft Dynamics CRM Online subscribers are already using Azure AD.
+  
+  A tenant is a representation of an organization. A tenant is typically separated from other tenants and has its own identity.
+  
+  Each Microsoft 365, Office 365, Azure, and Dynamics CRM Online tenant is automatically an Azure AD tenant.
+
+
+
+What services does Azure AD provide?
+
+
+Azure AD provides services such as:
+- Authentication
+- Single sign-on
+- Application management
+  
+  You can manage your cloud and on-premises apps by using Azure AD. Features like Application Proxy, SaaS apps, the My Apps portal (also called the access panel), and single sign-on provide a better user experience.
+- Device management
+  
+  Along with accounts for individual people, Azure AD supports the registration of devices. Registration enables devices to be managed through tools like Microsoft Intune. It also allows for device-based Conditional Access policies to restrict access attempts to only those coming from known devices, regardless of the requesting user account.
+
+
+What's single sign-on?
+
+
+Single sign-on enables a user to sign in one time and use that credential to access multiple resources and applications from different providers.
+
+With SSO, you need to remember only one ID and one password. Access across applications is granted to a single identity that's tied to the user, which simplifies the security model. As users change roles or leave an organization, access is tied to a single identity. This change greatly reduces the effort needed to change or disable accounts.
+
+
+How can I connect Active Directory with Azure AD? Using Azure AD Connect
+
+
+why? Connecting Active Directory with Azure AD enables you to provide a consistent identity experience to your users.
+
+Azure AD Connect synchronizes user identities between on-premises Active Directory and Azure AD. Azure AD Connect synchronizes changes between both identity systems, so you can use features like SSO, multifactor authentication, and self-service password reset under both systems. Self-service password reset prevents users from using known compromised passwords.
+
+
+
+What are multifactor authentication and Conditional Access?
+
+
+
+What's multifactor authentication?
+
+
+Multifactor authentication is a process where a user is prompted during the sign-in process for an additional form of identification. 
+
+These elements fall into three categories:
+- Something the user knows
+  
+  This might be an email address and password.
+- Something the user has
+  
+  This might be a code that's sent to the user's mobile phone.
+- Something the user is
+  
+  This is typically some sort of biometric property, such as a fingerprint or face scan that's used on many mobile devices.
+
+
+What's Azure AD Multi-Factor Authentication?
+
+Azure AD Multi-Factor Authentication is a Microsoft service that provides multifactor authentication capabilities.
+
+- Azure Active Directory
+  
+  The Azure Active Directory free edition enables Azure AD Multi-Factor Authentication for administrators with the global admin level of access, via the Microsoft Authenticator app, phone call, or SMS code. You can also enforce Azure AD Multi-Factor Authentication for all users via the Microsoft Authenticator app only, by enabling security defaults in your Azure AD tenant.
+  
+  Azure Active Directory Premium (P1 or P2 licenses) allows for comprehensive and granular configuration of Azure AD Multi-Factor Authentication through Conditional Access policies (explained shortly).
+- Multifactor authentication for Office 365
+  
+  A subset of Azure AD Multi-Factor Authentication capabilities is part of your Office 365 subscription.
+
+For more information on licenses and Azure AD Multi-Factor Authentication capabilities, see Available versions of Azure AD Multi-Factor Authentication.
+
+
+
+When can I use Conditional Access?
+
+
+Conditional Access is useful when you need to:
+- Require multifactor authentication to access an application.
+  
+  You can configure whether all users require multifactor authentication or only certain users, such as administrators.
+  
+  You can also configure whether multifactor authentication applies to access from all networks or only untrusted networks.
+- Require access to services only through approved client applications.
+  
+  For example, you might want to allow users to access Office 365 services from a mobile device as long as they use approved client apps, like the Outlook mobile app.
+- Require users to access your application only from managed devices.
+  
+  A managed device is a device that meets your standards for security and compliance.
+- Block access from untrusted sources, such as access from unknown or unexpected locations.
+
+Conditional Access comes with a What If tool, which helps you plan and troubleshoot your Conditional Access policies. You can use this tool to model your proposed Conditional Access policies across recent sign-in attempts from your users to see what the impact would have been if those policies had been enabled. The What If tool enables you to test your proposed Conditional Access policies before you implement them.
+
+Where is Conditional Access available?
+
+
+To use Conditional Access, you need an Azure AD Premium P1 or P2 license. If you have a Microsoft 365 Business Premium license, you also have access to Conditional Access features.
+
+SUMMARY
+- Authentication (AuthN) establishes the user's identity.
+- Authorization (AuthZ) establishes the level of access that an authenticated user has.
+- Single sign-on (SSO) enables a user to sign in one time and use that credential to access multiple resources and applications.
+- Azure Active Directory (Azure AD) is a cloud-based identity and access management service. Azure AD enables an organization to control access to apps and resources based on its business requirements.
+- Azure AD Multi-Factor Authentication provides additional security for identities by requiring two or more elements to fully authenticate. In general, multifactor authentication can include something the user knows, something the user has, and something the user is.
+- Conditional Access is a tool that Azure AD uses to allow or deny access to resources based on identity signals such as the user's location.
+
+
+
+
+Build a cloud governance strategy on Azure
+
+
+
+The term governance describes the general process of establishing rules and policies and ensuring that those rules and policies are enforced.
+
+When running in the cloud, a good governance strategy helps you maintain control over the applications and resources that you manage in the cloud. Maintaining control over your environment ensures that you stay compliant with:
+- Industry standards, like PCI DSS.
+- Corporate or organizational standards, such as ensuring that network data is encrypted.
+
+Governance is most beneficial when you have:
+- Multiple engineering teams working in Azure.
+- Multiple subscriptions to manage.
+- Regulatory requirements that must be enforced.
+- Standards that must be followed for all cloud resources.
+
+Control access to cloud resources by using Azure role-based access control
+
+
+
+How is role-based access control applied to resources?
+
+
+Role-based access control is applied to a scope, which is a resource or set of resources that this access applies to.
+
+Here's a diagram that shows the relationship between roles and scopes.
+
+
+
+Scopes include:
+- A management group (a collection of multiple subscriptions).
+- A single subscription.
+- A resource group.
+- A single resource.
+
+Observers, Users managing resources, Admins, and Automated processes illustrate the kinds of users or accounts that would typically be assigned each of the various roles.
+
+When you grant access at a parent scope, those permissions are inherited by all child scopes. For example:
+- When you assign the Owner role to a user at the management group scope, that user can manage everything in all subscriptions within the management group.
+- When you assign the Reader role to a group at the subscription scope, the members of that group can view every resource group and resource within the subscription.
+- When you assign the Contributor role to an application at the resource group scope, the application can manage resources of all types within that resource group, but not other resource groups within the subscription.
+
+
+When should I use Azure RBAC?
+
+
+Use Azure RBAC when you need to:
+- Allow one user to manage VMs in a subscription and another user to manage virtual networks.
+- Allow a database administrator group to manage SQL databases in a subscription.
+- Allow a user to manage all resources in a resource group, such as virtual machines, websites, and subnets.
+- Allow an application to access all resources in a resource group.
+
+
+How is Azure RBAC enforced?
+
+
+Azure RBAC is enforced on any action that's initiated against an Azure resource that passes through Azure Resource Manager. Resource Manager is a management service that provides a way to organize and secure your cloud resources.
+
+RBAC uses an allow model. When you're assigned a role, RBAC allows you to perform certain actions, such as read, write, or delete. If one role assignment grants you read permissions to a resource group and a different role assignment grants you write permissions to the same resource group, you have both read and write permissions on that resource group.
+
+
+Who does Azure RBAC apply to?
+
+
+You can apply Azure RBAC to an individual person or to a group. You can also apply Azure RBAC to other special identity types, such as service principals and managed identities. These identity types are used by applications and services to automate access to Azure resources.
+
+
+How do I manage Azure RBAC permissions?
+
+
+You manage access permissions on the Access control (IAM) pane in the Azure portal. This pane shows who has access to what scope and what roles apply. You can also grant or remove access from this pane.
+
+
+Prevent accidental changes by using resource locks
+
+
+A resource lock prevents resources from being accidentally deleted or changed.
+
+Even with Azure role-based access control (Azure RBAC) policies in place, there's still a risk that people with the right level of access could delete critical cloud resources. Think of a resource lock as a warning system that reminds you that a resource should not be deleted or changed.
+
+
+What levels of locking are available?
+
+
+You can apply locks to a subscription, a resource group, or an individual resource. You can set the lock level to CanNotDelete or ReadOnly.
+- CanNotDelete means authorized people can still read and modify a resource, but they can't delete the resource without first removing the lock.
+- ReadOnly means authorized people can read a resource, but they can't delete or change the resource. Applying this lock is like restricting all authorized users to the permissions granted by the Reader role in Azure RBAC.
+
+
+How do I delete or change a locked resource?
+
+
+Although locking helps prevent accidental changes, you can still make changes by following a two-step process.
+
+To modify a locked resource, you must first remove the lock. After you remove the lock, you can apply any action you have permissions to perform. This additional step allows the action to be taken, but it helps protect your administrators from doing something they might not have intended to do.
+
+Resource locks apply regardless of RBAC permissions. Even if you're an owner of the resource, you must still remove the lock before you can perform the blocked activity.
+
+
+Combine resource locks with Azure Blueprints
+
+
+What if a cloud administrator accidentally deletes a resource lock? If the resource lock is removed, its associated resources can be changed or deleted.
+
+To make the protection process more robust, you can combine resource locks with Azure Blueprints. Azure Blueprints enables you to define the set of standard Azure resources that your organization requires. For example, you can define a blueprint that specifies that a certain resource lock must exist. Azure Blueprints can automatically replace the resource lock if that lock is removed.
+
+
+
 # Azure service level agreements and cost management
 
 Migration to the cloud presents new ways to think about your IT expenses. The cloud also removes the burden of supporting IT infrastructure.
