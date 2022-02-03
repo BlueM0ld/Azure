@@ -1,6 +1,4 @@
-# Azure
-Azure Notes
-
+# Azure Fundamentals Notes (942)
 
 ## What is cloud computing
 
