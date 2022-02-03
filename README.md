@@ -170,6 +170,323 @@ what are cloud service models?
 - Subscriptions: A subscription groups together user accounts and the resources that have been created by those user accounts. For each subscription, there are limits or quotas on the amount of resources that you can create and use. Organizations can use subscriptions to manage costs and the resources that are created by users, teams, or projects.
 - Management groups: These groups help you manage access, policy, and compliance for multiple subscriptions. All subscriptions in a management group automatically inherit the conditions applied to the management group
 
+# Describe general security and network security features
+
+- What's Azure Security Center?
+  
+	- Azure Security Center is a monitoring service 
+	- provides visibility of your security posture across all of your services, both on Azure and on-premises.
+	- The term security posture refers to cybersecurity policies and controls, as well as how well you can predict, prevent, and respond to security threats.
+- Security Center can:
+	- Monitor security settings across on-premises and cloud workloads.
+	- Automatically apply required security settings to new resources as they come online.
+	- Provide security recommendations that are based on your current configurations, resources, and networks.
+	- Continuously monitor your resources and perform automatic security assessments to identify potential vulnerabilities before those vulnerabilities can be exploited.
+	- Use machine learning to detect and block malware from being installed on your virtual machines (VMs) and other resources. You can also use adaptive application controls to define rules that list allowed applications to ensure that only applications you allow can run.
+	- Detect and analyze potential inbound attacks and investigate threats and any post-breach activity that might have occurred.
+	- Provide just-in-time access control for network ports. Doing so reduces your attack surface by ensuring that the network only allows traffic that you require at the time that you need it to.
+
+What's secure score?
+
+
+- Secure score is a measurement of an organization's security posture.
+
+- Secure score is based on security controls, or groups of related security recommendations. Your score is based on the percentage of security controls that you satisfy. The more security controls you satisfy, the higher the score you receive. Your score improves when you remediate all of the recommendations for a single resource within a control.
+
+
+Protect against threats
+
+
+Security Center includes advanced cloud defense capabilities for VMs, network security, and file integrity. Let's look at how some of these capabilities apply to Tailwind Traders.
+- Just-in-time VM access
+	- You would need to configure it
+	- This access blocks traffic by default to specific network ports of VMs, but allows traffic for a specified time when an admin requests and approves it.
+- Adaptive application controls
+	- control which applications are allowed to run on its VMs
+	- In the background, Security Center uses machine learning to look at the processes running on a VM
+	-  It creates exception rules for each resource group that holds the VMs and provides recommendations.
+	- This process provides alerts that inform the company about unauthorized applications that are running on its VMs
+- Adaptive network hardening
+	- Security Center can monitor the internet traffic patterns of the VMs, and compare those patterns with the company's current network security group (NSG) settings. 
+	- make recommendations about whether the NSGs should be locked down further and provide remediation steps.
+- File integrity monitoring
+	-  configure the monitoring of changes to important files on both Windows and Linux, registry settings, applications, and other aspects that might indicate a security attack.
+
+Respond to security alerts
+
+
+- use Security Center to get a centralized view of all of its security alerts. 
+- you can dismiss false alerts, investigate them further, remediate alerts manually, or use an automated response with a workflow automation.
+
+- Workflow automation uses Azure Logic Apps and Security Center connectors
+- The logic app can be triggered by a threat detection alert or by a Security Center recommendation, filtered by name or by severity
+- You can then configure the logic app to run an action, such as sending an email, or posting a message to a Microsoft Teams channel.
+
+
+Detect and respond to security threats by using Azure Sentinel
+
+
+- Azure Sentinel is Microsoft's cloud-based SIEM system. It uses intelligent security analytics and threat analysis.
+- What are the capabilities of Azure Sentinel
+	- Collect cloud data at scale
+		- Collect data across all users, devices, applications, and infrastructure, both on-premises and from multiple clouds.
+	- Detect previously undetected threats
+		- Minimize false positives by using Microsoft's comprehensive analytics and threat intelligence.
+	- Investigate threats with artificial intelligence
+		- Examine suspicious activities at scale, tapping into years of cybersecurity experience from Microsoft.
+	- Respond to incidents rapidly
+		- Use built-in orchestration and automation of common tasks.
+- Connect your data sources
+  
+	- Azure Sentinel supports a number of data sources, which it can analyze for security events. These connections are handled by built-in connectors or industry-standard log formats and APIs.
+		- Connect Microsoft solutions
+			- Connectors provide real-time integration for services like Microsoft Threat Protection solutions, Microsoft 365 sources (including Office 365), Azure Active Directory, and Windows Defender Firewall.
+		- Connect other services and solutions
+			- Connectors are available for common non-Microsoft services and solutions, including AWS CloudTrail, Citrix Analytics (Security), Sophos XG Firewall, VMware Carbon Black Cloud, and Okta SSO.
+		- Connect industry-standard data sources
+			- Azure Sentinel supports data from other sources that use the Common Event Format (CEF) messaging standard, Syslog, or REST API.
+- Detect Threats
+	- Built in analytics use templates designed based on known threats, common attack vectors, and escalation chains for suspicious activity
+		- These templates can be customized and search across the environment for any activity that looks suspicious
+		- Some templates use machine learning behavioral analytics that are based on Microsoft proprietary algorithms.
+	- Custom analytics are rules that you create to search for specific criteria within your environment
+		-  You can preview the number of results that the query would generate (based on past log events) and set a schedule for the query to run.
+		- You can also set an alert threshold.
+https://docs.microsoft.com/en-gb/learn/modules/protect-against-security-threats-azure/3-detect-respond-threats-sentinel **
+
+
+
+
+Azure Security Center
+
+
+Take the Resolve security threats with Azure Security Center module to use the alert capabilities of Azure Security Center to watch for and respond to threats.
+
+Then review the planning and operations guide to optimize your use of Security Center based on your organization's security requirements and cloud management model.
+
+Azure Sentinel
+
+
+Design a holistic monitoring strategy on Azure goes into greater depth on how Azure Sentinel can help monitor and respond to security threats across your organization.
+
+Also learn how to connect data sources to Azure Sentinel.
+
+Azure Key Vault
+
+
+Gain additional hands-on experience with Azure Key Vault in Manage secrets in your server apps with Azure Key Vault and Configure and manage secrets in Azure Key Vault.
+  
+
+
+
+
+
+Secure network connectivity on Azure
+
+
+
+
+What is defense in depth?
+
+
+The objective of defense in depth is to protect information and prevent it from being stolen by those who aren't authorized to access it.
+
+Each layer provides protection so that if one layer is breached, a next layer is already in place to prevent further exposure
+
+ This approach removes reliance on any single layer of protection
+ It slows down an attack and provides alert to security teams can act upon, either automatically or manually.
+
+
+
+
+- The physical security layer is the first line of defense to protect computing hardware in the datacenter.
+- The identity and access layer controls access to infrastructure and change control.
+- The perimeter layer uses distributed denial of service (DDoS) protection to filter large-scale attacks before they can cause a denial of service for users.
+- The network layer limits communication between resources through segmentation and access controls.
+- The compute layer secures access to virtual machines.
+- The application layer helps ensure that applications are secure and free of security vulnerabilities.
+- The data layer controls access to business and customer data that you need to protect.
+
+
+
+Physical security
+
+Physically securing access to buildings and controlling access to computing hardware within the datacenter are the first line of defense.
+
+With physical security, the intent is to provide physical safeguards against access to assets. These safeguards ensure that other layers can't be bypassed, and loss or theft is handled appropriately. Microsoft uses various physical security mechanisms in its cloud datacenters.
+
+
+Identity and access
+
+At this layer, it's important to:
+- Control access to infrastructure and change control.
+- Use single sign-on (SSO) and multifactor authentication.
+- Audit events and changes.
+
+The identity and access layer is all about ensuring that identities are secure, access is granted only to what's needed, and sign-in events and changes are logged.
+
+
+Perimeter
+
+At this layer, it's important to:
+- Use DDoS protection to filter large-scale attacks before they can affect the availability of a system for users.
+- Use perimeter firewalls to identify and alert on malicious attacks against your network.
+
+At the network perimeter, it's about protecting from network-based attacks against your resources. Identifying these attacks, eliminating their impact, and alerting you when they happen are important ways to keep your network secure.
+
+
+Network
+
+At this layer, it's important to:
+- Limit communication between resources.
+- Deny by default.
+- Restrict inbound internet access and limit outbound access where appropriate.
+- Implement secure connectivity to on-premises networks.
+
+At this layer, the focus is on limiting the network connectivity across all your resources to allow only what's required. By limiting this communication, you reduce the risk of an attack spreading to other systems in your network.
+
+
+Compute
+
+At this layer, it's important to:
+- Secure access to virtual machines.
+- Implement endpoint protection on devices and keep systems patched and current.
+
+Malware, unpatched systems, and improperly secured systems open your environment to attacks. The focus in this layer is on making sure that your compute resources are secure and that you have the proper controls in place to minimize security issues.
+
+
+Application
+
+At this layer, it's important to:
+- Ensure that applications are secure and free of vulnerabilities.
+- Store sensitive application secrets in a secure storage medium.
+- Make security a design requirement for all application development.
+
+Integrating security into the application development lifecycle helps reduce the number of vulnerabilities introduced in code. Every development team should ensure that its applications are secure by default.
+
+
+Data
+
+In almost all cases, attackers are after data:
+- Stored in a database.
+- Stored on disk inside virtual machines.
+- Stored in software as a service (SaaS) applications, such as Office 365.
+- Managed through cloud storage.
+
+Those who store and control access to data are responsible for ensuring that it's properly secured. Often, regulatory requirements dictate the controls and processes that must be in place to ensure the confidentiality, integrity, and availability of the data.
+
+
+Security posture
+
+
+Your security posture is your ability to protect,find and respond to security threats. The common principles used to define a security posture are confidentiality, integrity, and availability, known collectively as CIA.
+- Confidentiality
+  
+  The principle of least privilege means restricting access to information only to individuals explicitly granted access, at only the level that they need to perform their work. This information includes protection of user passwords, email content, and access levels to applications and underlying infrastructure.
+- Integrity
+  
+  Prevent unauthorized changes to information:
+	- At rest: when it's stored.
+	- In transit: when it's being transferred from one place to another, including from a local computer to the cloud.
+
+	   A common approach used in data transmission is for the sender to create a unique fingerprint of the data by using a one-way hashing algorithm. The hash is sent to the receiver along with the data. The  receiver recalculates the data's hash and compares it to the original to ensure that the data wasn't lost or modified in transit.
+- Availability
+Ensure that services are functioning and can be accessed only by authorized users. Denial-of-service attacks are designed to degrade the availability of a system, affecting its users.
+
+
+
+
+Protect from DDoS attacks by using Azure DDoS Protection
+
+
+
+What are DDoS attacks?
+
+
+A distributed denial of service attack attempts to overwhelm and exhaust an application's resources, making the application slow or unresponsive to legitimate users. DDoS attacks can target any resource that's publicly reachable through the internet, including websites.
+
+What is Azure DDoS Protection?
+
+
+Azure DDoS Protection (Standard) helps protect your Azure resources from DDoS attacks.
+
+When you combine DDoS Protection with recommended application design practices, you help provide a defense against DDoS attacks. DDoS Protection uses the scale and elasticity of Microsoft's global network to bring DDoS mitigation capacity to every Azure region. The DDoS Protection service helps protect your Azure applications by analyzing and discarding DDoS traffic at the Azure network edge, before it can affect your service's availability.
+
+
+DDoS Protection identifies the attacker's attempt to overwhelm the network and blocks further traffic from them, ensuring that traffic never reaches Azure resources. Legitimate traffic from customers still flows into Azure without any interruption of service.
+
+DDoS Protection can also help you manage your cloud consumption. When you run on-premises, you have a fixed number of compute resources. But in the cloud, elastic computing means that you can automatically scale out your deployment to meet demand. A cleverly designed DDoS attack can cause you to increase your resource allocation, which incurs unneeded expense. DDoS Protection Standard helps ensure that the network load you process reflects customer usage. You can also receive credit for any costs accrued for scaled-out resources during a DDoS attack.
+
+
+What service tiers are available to DDoS Protection?
+
+
+DDoS Protection provides these service tiers:
+- Basic
+  
+  The Basic service tier is automatically enabled for free as part of your Azure subscription.
+  
+  Always-on traffic monitoring and real-time mitigation of common network-level attacks provide the same defenses that Microsoft's online services use. The Basic service tier ensures that Azure infrastructure itself is not affected during a large-scale DDoS attack.
+  
+  The Azure global network is used to distribute and mitigate attack traffic across Azure regions.
+- Standard
+  
+  The Standard service tier provides additional mitigation capabilities that are tuned specifically to Azure Virtual Network resources. DDoS Protection Standard is relatively easy to enable and requires no changes to your applications.
+  
+  The Standard tier provides always-on traffic monitoring and real-time mitigation of common network-level attacks. It provides the same defenses that Microsoft's online services use.
+  
+  Protection policies are tuned through dedicated traffic monitoring and machine learning algorithms. Policies are applied to public IP addresses, which are associated with resources deployed in virtual networks such as Azure Load Balancer and Application Gateway.
+  
+  The Azure global network is used to distribute and mitigate attack traffic across Azure regions.
+
+What kinds of attacks can DDoS Protection help prevent?
+
+
+The Standard service tier can help prevent:
+- Volumetric attacks
+  
+  The goal of this attack is to flood the network layer with a substantial amount of seemingly legitimate traffic.
+- Protocol attacks
+  
+  These attacks render a target inaccessible by exploiting a weakness in the layer 3 and layer 4 protocol stack.
+- Resource-layer (application-layer) attacks (only with web application firewall)
+  
+  These attacks target web application packets to disrupt the transmission of data between hosts. You need a web application firewall (WAF) to protect against L7 attacks. DDoS Protection Standard protects the WAF from volumetric and protocol attacks.
+
+
+Filter network traffic by using network security groups
+
+  network security groups  are known as (NSGs)
+
+
+What are network security groups?
+
+
+A network security group enables you to filter network traffic to and from Azure resources within an Azure virtual network. You can think of NSGs like an internal firewall. An NSG can contain multiple inbound and outbound security rules that enable you to filter traffic to and from resources by source and destination IP address, port, and protocol.
+
+How do I specify NSG rules?
+
+
+A network security group can contain as many rules as you need, within Azure subscription limits. Each rule specifies these properties:
+HOW DO I SPECIFY NSG RULES?
+Property
+Description
+Name
+A unique name for the NSG.
+Priority
+A number between 100 and 4096. Rules are processed in priority order, with lower numbers processed before higher numbers.
+Source or Destination
+A single IP address or IP address range, service tag, or application security group.
+Protocol
+TCP, UDP, or Any.
+Direction
+Whether the rule applies to inbound or outbound traffic.
+Port Range
+A single port or range of ports.
+Action
+Allow or Deny.
+
+When you create a network security group, Azure creates a series of default rules to provide a baseline level of security. You can't remove the default rules, but you can override them by creating new rules with higher priorities.
 
 
 # Azure Fundamentals part 5: Describe identity, governance, privacy, and compliance features
