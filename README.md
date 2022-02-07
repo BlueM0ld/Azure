@@ -1,8 +1,8 @@
-# Azure Fundamentals Notes (942)
+# Azure Fundamentals Notes - (score 942)
 
 ## What is cloud computing
 
-- is a delivery of computing services over the internet by using pay as you go pricing model
+- cloud computing is a delivery of computing services over the internet by using pay as you go pricing model
 - This helps you
 	- Lower operating costs
 	- run your infrastructure more efficiently
